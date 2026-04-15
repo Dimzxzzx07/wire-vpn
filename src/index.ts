@@ -1,0 +1,1 @@
+export { VPNConnection, VPNConfig, VPNPeer } from './lib/vpn';

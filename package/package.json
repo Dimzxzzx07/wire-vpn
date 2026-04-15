@@ -1,0 +1,38 @@
+{
+  "name": "wire-vpn",
+  "version": "1.0.1",
+  "description": "High-performance VPN module with C++ addons and CLI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "vpn": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "npm run build:addon && npm run build:ts",
+    "build:addon": "node-gyp rebuild",
+    "build:ts": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.3.0",
+    "commander": "^11.1.0",
+    "node-addon-api": "^7.1.0",
+    "table": "^6.8.1",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/table": "^6.3.0",
+    "node-gyp": "^10.0.0",
+    "typescript": "^5.3.0"
+  },
+  "gypfile": true,
+  "license": "MIT",
+  "author": "Dimzxzzx07",
+  "binary": {
+    "module_name": "vpn_native",
+    "module_path": "./lib/binding/",
+    "host": "https://github.com/Dimzxzzx07/wire-vpn/releases/download/",
+    "remote_path": "./{version}/"
+  }
+}
